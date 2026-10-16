@@ -37,38 +37,40 @@ public class PantryDAO {
     }
 
     //this is the read operation
+
+    //this is the read operation
     public ArrayList<PantryItem> getAllItems() {
 
         ArrayList<PantryItem> pantryItems = new ArrayList<>();
+
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM pantry ORDER BY name COLLATE NOCASE ASC", null);
 
-        if (cursor.moveToFirst()) {
-            do {
-                int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
-                double quantity = cursor.getDouble(cursor.getColumnIndexOrThrow("quantity"));
-                String unit = cursor.getString(cursor.getColumnIndexOrThrow("unit"));
-                String expiryDate = cursor.getString(cursor.getColumnIndexOrThrow("expiryDate"));
+        try (Cursor cursor = db.rawQuery("SELECT * FROM pantry ORDER BY name COLLATE NOCASE ASC", null)) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+                    String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+                    double quantity = cursor.getDouble(cursor.getColumnIndexOrThrow("quantity"));
+                    String unit = cursor.getString(cursor.getColumnIndexOrThrow("unit"));
+                    String expiryDate = cursor.getString(cursor.getColumnIndexOrThrow("expiryDate"));
 
-                PantryItem item = new PantryItem(
-                        id,
-                        name,
-                        quantity,
-                        unit,
-                        expiryDate
-                );
+                    PantryItem item = new PantryItem(
+                            id,
+                            name,
+                            quantity,
+                            unit,
+                            expiryDate
+                    );
 
-                pantryItems.add(item);
-
-            } while (cursor.moveToNext());
+                    pantryItems.add(item);
+                } while (cursor.moveToNext());
+            }
+        } finally {
+            db.close();
         }
-
-        cursor.close();
-        db.close();
-
         return pantryItems;
     }
+
 
     //this is the update operation
     public int updateItem(PantryItem item) {
