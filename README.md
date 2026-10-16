@@ -59,6 +59,3 @@ The initial recipe collection is inserted when the app opens if the recipes tabl
 - `database/PantryDAO.java`: pantry database operations.
 - `database/RecipeDAO.java`: recipe seeding, ingredient retrieval, unit conversion and availability summaries.
 
-## Assignment evidence still to prepare
-
-Capture screenshots of the actual running app, record the required narrated 5–7 minute demonstration, and include the final report and accessible GitHub repository link in the submission. Only claim tests as passed after running them in Android Studio or on a device.
