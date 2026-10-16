@@ -59,3 +59,14 @@ The initial recipe collection is inserted when the app opens if the recipes tabl
 - `database/PantryDAO.java`: pantry database operations.
 - `database/RecipeDAO.java`: recipe seeding, ingredient retrieval, unit conversion and availability summaries.
 
+
+## Recipe Suggestions
+
+The app provides recipe suggestions based on the ingredients saved in the pantry. It checks ingredient names, quantities and compatible units to determine whether a recipe can be prepared.
+
+Expired ingredients are not counted as available stock. When ingredients or quantities are missing, the app displays what is still needed.
+
+## Testing
+
+The app should be tested by adding, editing and deleting ingredients, checking expiry-date validation, restarting the app to confirm data is saved, and verifying recipe suggestions.
+
