@@ -365,9 +365,10 @@ public class RecipeDAO {
         Cursor cursor = db.rawQuery(
                 "SELECT r.id, r.name, r.method FROM recipes r " +
                         "WHERE EXISTS (SELECT 1 FROM recipe_ingredients ri " +
-                        "WHERE ri.recipe_id = r.id) ORDER BY r.name COLLATE NOCASE",
+                        "WHERE ri.recipe_id = r.id) ORDER BY r.name COLLATE NOCASE ASC",
                 null
         );
+
 
         if (cursor.moveToFirst()) {
             do {
