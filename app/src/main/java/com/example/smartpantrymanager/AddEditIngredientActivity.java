@@ -31,7 +31,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
     private PantryDAO pantryDAO;
 
-    // This stores the ID of the item being edited
+    //This stores the ID of the item being edited
     private int itemId = -1;
 
     @Override
@@ -50,10 +50,10 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
         pantryDAO = new PantryDAO(this);
 
-        // Get the ID sent from PantryAdapter
+        //this will get the ID sent from PantryAdapter
         itemId = getIntent().getIntExtra("item_id", -1);
 
-        // If an item ID was received, we are editing
+        //if we get an item ID, we are editing
         if (itemId != -1) {
 
             edtName.setText(
@@ -84,11 +84,11 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
         } else {
 
-            // Delete is only needed when editing
+            //delete is only needed when editing
             btnDelete.setVisibility(View.GONE);
         }
 
-        // Let the user choose an expiry date with the date picker.
+        //let the user choose an expiry date with the date picker.
         edtExpiryDate.setFocusable(false);
         edtExpiryDate.setClickable(true);
         edtExpiryDate.setOnClickListener(v -> showDatePicker());
@@ -98,7 +98,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(v -> deleteIngredient());
     }
 
-    // Opens a calendar so the user does not have to type the date manually.
+    //this will open a calendar so the user does not have to type the date manually.
     private void showDatePicker() {
         Calendar calendar = Calendar.getInstance();
 
@@ -108,7 +108,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
                 LocalDate date = LocalDate.parse(currentDate);
                 calendar.set(date.getYear(), date.getMonthValue() - 1, date.getDayOfMonth());
             } catch (DateTimeParseException ignored) {
-                // Use today's date if the saved date is not in yyyy-MM-dd format.
+                //Use today's date if the saved date is not in yyyy-MM-dd format.
             }
         }
 
@@ -136,17 +136,13 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         String unit = edtUnit.getText().toString().trim();
         String expiryDate = edtExpiryDate.getText().toString().trim();
 
-        // This is for validation so that users are not allowed
-        // to add dates that already passed
+        //this is for validation so that users are not allowed to add dates that already passed
         if (!expiryDate.isEmpty()) {
-
             try {
-
                 LocalDate enteredDate = LocalDate.parse(expiryDate);
                 LocalDate today = LocalDate.now();
 
                 if (enteredDate.isBefore(today)) {
-
                     edtExpiryDate.setError(
                             "Expiry date cannot be in the past"
                     );
@@ -156,7 +152,6 @@ public class AddEditIngredientActivity extends AppCompatActivity {
                 }
 
             } catch (DateTimeParseException e) {
-
                 edtExpiryDate.setError(
                         "Use the format YYYY-MM-DD"
                 );
