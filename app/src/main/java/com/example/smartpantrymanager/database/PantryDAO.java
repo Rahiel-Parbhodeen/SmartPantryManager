@@ -40,15 +40,11 @@ public class PantryDAO {
     public ArrayList<PantryItem> getAllItems() {
 
         ArrayList<PantryItem> pantryItems = new ArrayList<>();
-
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-
-        Cursor cursor = db.rawQuery("SELECT * FROM pantry", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM pantry ORDER BY name COLLATE NOCASE ASC", null);
 
         if (cursor.moveToFirst()) {
-
             do {
-
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
                 double quantity = cursor.getDouble(cursor.getColumnIndexOrThrow("quantity"));
