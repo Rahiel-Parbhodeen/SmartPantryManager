@@ -71,3 +71,16 @@ Expired ingredients are not counted as available stock. When ingredients or quan
 The app should be tested by adding, editing and deleting ingredients, checking expiry-date validation, restarting the app to confirm data is saved, and verifying recipe suggestions.
 
 Final build and application functionality checked before submission.
+ 
+## Commits 
+PS C:\Users\rahie\Downloads\SmartPantryManager_NEW\SmartPantryManager> git --no-pager log --oneline
+006bd76 (HEAD -> main, origin/main) Record final project verification
+8121686 Document recipe suggestions and testing
+e5bdd33 Sort recipe suggestions alphabetically
+8668182 Close recipe matching resources safely
+cc0a963 Validate recipe ingredient data
+6cda213 Close pantry database resources safely
+b3cea50 Sort pantry ingredients alphabetically
+306e79a Prevent selecting past expiry dates
+b1044c9 Update README.md
+5b6cd43 Add existing Smart Pantry Manager project
