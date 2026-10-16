@@ -70,3 +70,4 @@ Expired ingredients are not counted as available stock. When ingredients or quan
 
 The app should be tested by adding, editing and deleting ingredients, checking expiry-date validation, restarting the app to confirm data is saved, and verifying recipe suggestions.
 
+Final build and application functionality checked before submission.
