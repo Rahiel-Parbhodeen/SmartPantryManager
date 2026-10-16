@@ -81,13 +81,7 @@ public class RecipeDAO {
     }
 
     //add an ingredient required by a recipe
-    public long addRecipeIngredient(
-            int recipeId,
-            String ingredientName,
-            double requiredQuantity,
-            String unit
-    ) {
-
+    public long addRecipeIngredient(int recipeId, String ingredientName, double requiredQuantity, String unit) {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
