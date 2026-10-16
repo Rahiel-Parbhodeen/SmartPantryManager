@@ -455,8 +455,7 @@ public class RecipeDAO {
         }
 
         StringBuilder summary = new StringBuilder();
-        summary.append("You have enough of ").append(availableCount).append(" of ")
-                .append(ingredients.size()).append(" ingredients.\nMissing: ");
+        summary.append("You have enough of ").append(availableCount).append(" of ").append(ingredients.size()).append(" ingredients.\nMissing: ");
         for (int i = 0; i < missingIngredients.size(); i++) {
             if (i > 0) summary.append(", ");
             summary.append(missingIngredients.get(i));
@@ -519,21 +518,16 @@ public class RecipeDAO {
 
                     if (pantryCursor.moveToFirst()) {
                         do {
-                            String pantryName = pantryCursor.getString(
-                                    pantryCursor.getColumnIndexOrThrow("name"));
-                            String pantryUnit = pantryCursor.getString(
-                                    pantryCursor.getColumnIndexOrThrow("unit"));
-                            double pantryQuantity = pantryCursor.getDouble(
-                                    pantryCursor.getColumnIndexOrThrow("quantity"));
-                            String expiryDate = pantryCursor.getString(
-                                    pantryCursor.getColumnIndexOrThrow("expiryDate"));
+                            String pantryName = pantryCursor.getString(pantryCursor.getColumnIndexOrThrow("name"));
+                            String pantryUnit = pantryCursor.getString(pantryCursor.getColumnIndexOrThrow("unit"));
+                            double pantryQuantity = pantryCursor.getDouble(pantryCursor.getColumnIndexOrThrow("quantity"));
+                            String expiryDate = pantryCursor.getString(pantryCursor.getColumnIndexOrThrow("expiryDate"));
 
-                            if (!normaliseIngredientName(requiredName).equals(
-                                    normaliseIngredientName(pantryName))) {
+                            if (!normaliseIngredientName(requiredName).equals(normaliseIngredientName(pantryName))) {
                                 continue;
                             }
 
-                            // Expired ingredients are not treated as usable pantry stock.
+                            //if the ingredients are expired they are not treated as usable pantry stock.
                             if (isExpired(expiryDate)) {
                                 continue;
                             }
