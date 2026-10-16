@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pantry_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnRecipeDetailBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to recipes"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/txtRecipeDetailName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recipe Name"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingredients: "
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txtRecipeIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingredients will appear here"
+            android:textSize="18sp"
+            android:layout_marginBottom="25dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How to prepare: "
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txtRecipeMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preparation method will appear here"
+            android:textSize="18sp"
+            android:textColor="#000000" />
+
+    </LinearLayout>
+
+</ScrollView>
